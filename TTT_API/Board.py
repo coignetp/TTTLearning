@@ -49,3 +49,24 @@ class Board:
 				if self.isFree(i, j):
 					return False
 		return True
+
+	def getLineSize(self, x, y, visited):
+		""" Tells the length of (x,y) id line 
+			and update the visited cells """
+		lineSize=0
+		i = 0
+
+		while x-i >=0 and self.cells[y][x] == self.cells[y][x-i]:
+			visited[y][x-i] = True
+			i += 1
+
+		lineSize += i
+
+		i = 0
+		while x+i+1 < self.size and self.cells[y][x] == self.cells[y][x+i+1]:
+			visited[y][x+i+1] = True
+			i += 1
+
+		lineSize += i
+
+		return lineSize
