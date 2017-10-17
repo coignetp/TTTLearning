@@ -39,3 +39,11 @@ class Board:
 		self.cells[y][x] = id
 
 		return True
+
+	def isComplete(self):
+		""" Tells if the board is full """
+		for i in range(0, self.size):
+			for j in range(0, self.size):
+				if self.isFree(i, j):
+					return False
+		return True
