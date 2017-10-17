@@ -30,3 +30,12 @@ class Board:
 			return False
 
 		return (self.cells[y][x] == -1)
+
+	def play(self, x, y, id):
+		""" Plays for the player id """
+		if not self.isFree(x, y) or id < 0 or id >= len(self.symbols):
+			return False
+
+		self.cells[y][x] = id
+
+		return True
