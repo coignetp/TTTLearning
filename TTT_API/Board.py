@@ -22,3 +22,11 @@ class Board:
 
 		for i in range(0, size):
 			self.cells.append([-1 for k in range(0, size)])
+
+	def isFree(self, x, y):
+		""" Tells if the cell is free to play """
+
+		if (x < 0 or x >= self.size) or (y < 0 or y >=self.size):
+			return False
+
+		return (self.cells[y][x] == -1)
