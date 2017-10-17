@@ -10,15 +10,17 @@ class Board:
 
 	size = 0
 	cells = []
-	symbols = ['X', 'O']
+	symbols = {1: 'X', 2: 'O'}
+	numberOfPlayer = 2
 
-	def __init__(self, size, symbols=['X', 'O']):
+	def __init__(self, size, symbols={1: 'X', 2: 'O'}):
 		""" Board contructor """
 		if size <= 0 or len(symbols) <= 0:
 			return
 
 		self.size = size
 		self.symbols = symbols
+		self.numberOfPlayer = len(self.symbols)
 
 		for i in range(0, size):
 			self.cells.append([-1 for k in range(0, size)])
@@ -33,7 +35,7 @@ class Board:
 
 	def play(self, x, y, id):
 		""" Plays for the player id """
-		if not self.isFree(x, y) or id < 0 or id >= len(self.symbols):
+		if not self.isFree(x, y) or id < 0 or id > self.numberOfPlayer:
 			return False
 
 		self.cells[y][x] = id
