@@ -135,3 +135,24 @@ class Board:
 		diagSize += i
 
 		return diagSize
+
+	def getWinner(self):
+		""" Returns the winner of the game """
+		visited = []
+		for i in range(0, self.size):
+			visited.append([False for k in range(0, self.size)])
+
+		for i in range(0, self.size):
+			for j in range(0, self.size):
+				if not self.isFree(i, j) \
+				and visited[j][i] == False \
+				and(self.getLineSize(i, j, visited) >= self.size\
+				or self.getColumnSize(i, j, visited) >= self.size\
+				or self.getDiagTopLeftSize(i, j, visited) >= self.size\
+				or self.getDiagTopRightSize(i, j, visited) >= self.size):
+					return self.cells[j][i]
+
+		if self.isComplete():
+			return 0
+
+		return -1
