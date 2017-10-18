@@ -158,3 +158,31 @@ class Board:
 			return 0
 
 		return -1
+
+	def __repr__(self):
+		""" Prints the board with the line
+			and column names """
+		ret = "    "
+
+		begLine = "+---"
+
+		for i in range(1, self.size+1):
+			ret += (" " * (len(begLine)-1)) + str(i)
+
+		ret += "\n"
+
+		for i in range(0, self.size):
+			ret += "     "
+			for j in range(0, self.size):
+				ret += begLine
+			ret += "+\n  " + chr(ord('a') + i) + "  |"
+			for j in range(0, self.size):
+				ret += " " + self.symbols[self.cells[j][i]] + " |"
+			ret += "\n"
+		ret += (" " * (len(begLine)+1))
+
+		for j in range(0, self.size):
+			ret += begLine
+		ret += "+"
+
+		return ret
