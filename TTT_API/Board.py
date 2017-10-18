@@ -22,6 +22,8 @@ class Board:
 		self.symbols = symbols
 		self.numberOfPlayer = len(self.symbols)
 
+		self.symbols[-1] = ' '
+
 		for i in range(0, size):
 			self.cells.append([-1 for k in range(0, size)])
 
@@ -35,7 +37,7 @@ class Board:
 
 	def play(self, x, y, id):
 		""" Plays for the player id """
-		if not self.isFree(x, y) or id < 0 or id > self.numberOfPlayer:
+		if not self.isFree(x, y) or id <= 0 or id > self.numberOfPlayer:
 			return False
 
 		self.cells[y][x] = id
