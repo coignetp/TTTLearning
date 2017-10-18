@@ -70,3 +70,24 @@ class Board:
 		lineSize += i
 
 		return lineSize
+
+	def getColumnSize(self, x, y, visited):
+		""" Tells the size of the (x,y) id column
+			and update the visited cells """
+		columnSize=0
+		i = 0
+
+		while y-i >=0 and self.cells[y][x] == self.cells[y-i][x]:
+			visited[y-i][x] = True
+			i += 1
+
+		columnSize += i
+
+		i = 0
+		while y+i+1 < self.size and self.cells[y][x] == self.cells[y+i+1][x]:
+			visited[y+i+1][x] = True
+			i += 1
+
+		columnSize += i
+
+		return columnSize
