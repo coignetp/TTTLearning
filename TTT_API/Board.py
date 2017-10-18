@@ -91,3 +91,47 @@ class Board:
 		columnSize += i
 
 		return columnSize
+
+	def getDiagTopLeftSize(self, x, y, visited):
+		""" Tells the size of one of the diagonal
+			and update visited cells """
+
+		diagSize = 0
+		i = 0
+
+		while (x-i >= 0 and y-i >= 0) and self.cells[y][x] == self.cells[y-i][x-i]:
+			visited[y-i][x-i] = True
+			i += 1
+
+		diagSize += i
+
+		i = 0
+		while (x+i+1 < self.size and y+i+1 < self.size) and self.cells[y][x] == self.cells[y+i+1][x+i+1]:
+			visited[y+i+1][x+i+1] = True
+			i += 1
+
+		diagSize += i
+
+		return diagSize
+
+	def getDiagTopRightSize(self, x, y, visited):
+		""" Tells the size of one of the diagonal
+			and update visited cells """
+
+		diagSize = 0
+		i = 0
+
+		while (x+i < self.size and y-i >= 0) and self.cells[y][x] == self.cells[y-i][x+i]:
+			visited[y-i][x+i] = True
+			i += 1
+
+		diagSize += i
+
+		i = 0
+		while (x-i-1 >= 0 and y+i+1 < self.size) and self.cells[y][x] == self.cells[y+i+1][x-i-1]:
+			visited[y+i+1][x-i-1] = True
+			i += 1
+
+		diagSize += i
+
+		return diagSize
