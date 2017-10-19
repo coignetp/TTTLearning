@@ -1,18 +1,21 @@
-from main import rVr
+from main import rVr, battle
 import matplotlib.pyplot as plt
+from AI.AIRandom import AIRandom
 
 # iterations
-n = 1500
+n = 15
 # size of the grid
-size = 3
+size = 4
+# players
+players = [AIRandom(1, size), AIRandom(2, size)]
 # number of player
-nbPlayer = 2
+nbPlayer = len(players)
 
 # Draw, win1, win2
 data = [0 for i in range(0, nbPlayer+1)]
 
 for i in range(n):
-    data[rVr(False, size, nbPlayer)] += 1
+    data[battle([AIRandom(1, size), AIRandom(2, size)], False, size)] += 1
 
 
 for i in range(1, len(data)):
