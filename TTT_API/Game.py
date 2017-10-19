@@ -1,30 +1,57 @@
+from Board import Board
 
 class Game:
-    PvP = "PvP"
-    PvAI = "PvAI"
-    AIvAI = "AIvAI"
+"""
+    Class to manage a Game that takes
+        - size the size of the board
+        - nbPlayers the number of players 
+"""
 
-    gameTypes = [ PvP, PvAI, AIvAI ]
-
-    def __init__(self, nbPlayers: int=2, gameType: str=PvP):
+    def __init__(self, size: int=2, nbPlayers: int=2):
         """ Initialize a new Game with parameters
             Parameters:
-                - nbPlayers: The number of players that want to play the game (default is 2)             
-                - gameType: The type of the game (default is Player vs Player)
+                - size the size of the board
+                - nbPlayers the number of players 
         """
 
-        # Throw error if wrong gameType
-        if not(gameType in Game.gameTypes):
-            raise ValueError("Wrong gameType used (should be PvP, PvAI or AIvAI)")
-
         self.nbPlayers = nbPlayers
-        self.gameType = gameType
+
+        if (nbPlayers > len(Board.symbols)):
+            raise ValueError("Too much players in this game !")
+        self.board = Board(size, nbPlayers)
+
+        # Stores the history of played cells
+        self.histories = [{
+            "size": size,
+            "nbPlayers": nbPlayers,
+            "history": []
+        }]
 
             
+    def playTurn(f, ID) -> int:
+        """
+            Play the turn with the function f (that corresponds to a player with id ID)
+            Returns: 
+                - Int from -1 to nbPlayers (-1 is game is not finished, 0 is a draw and others are the id of winners)
+        """
+        x, y = f(self.board)
+        # Add the play to the history
+        self.histories[-1]["history"].append((x, y))
+        self.board.play(x, y, ID)
 
-    def start():
-        """ Starts a game  """
-        print("Start game")
-    
+        return self.board.getWinner()
+
+    def reset(size: int=self.board.size, nbPlayers: int=self.nbPlayers):
+        """
+            Just reset a game
+        """
+        self.board = Board(size, nbPlayers)
+        self.histories.append({
+            "size": size,
+            "nbPlayers": nbPlayers,
+            "history": []
+        })
+
+
     def __repr__(self) -> str:
-        return f'A tic tac toe game of type {self.gameType} with {self.nbPlayers}'
+        return f'A tic tac toe game of size {self.size} with {self.nbPlayers} players'
