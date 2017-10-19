@@ -7,7 +7,17 @@ class Board:
 	- symbols 
 	"""
 
-	def __init__(self, size, symbols={1: 'X', 2: 'O'}):
+	symbols = {
+		-1: ' ',
+		1: 'X',
+		2: 'O',
+		3: 'I',
+		4: 'Y',
+		5: 'S',
+		6: 'H'
+	}
+
+	def __init__(self, size, numberOfPlayers):
 		""" Board constructor """
 		if size <= 0 or len(symbols) <= 0:
 			return
@@ -16,7 +26,7 @@ class Board:
 		self.symbols = symbols
 
 		self.cells = []
-		self.numberOfPlayers = len(self.symbols)
+		self.numberOfPlayers = numberOfPlayers
 
 		self.symbols[-1] = ' '
 
