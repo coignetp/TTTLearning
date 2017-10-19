@@ -18,9 +18,14 @@ class AIRandom(Player):
 
 	def play(self, board):
 		# Remove all the case not available #
+		sup = []
+
 		for t in self.availableMove:
 			if not board.isFree(t[0], t[1]):
-				self.availableMove.remove(t)
+				sup.append(t)
+
+		for i in sup:
+			self.availableMove.remove(i)
 
 		# Select a random move #
 		z = randint(0, len(self.availableMove)-1)
