@@ -19,11 +19,11 @@ class Board:
 
 	def __init__(self, size, numberOfPlayers):
 		""" Board constructor """
-		if size <= 0 or len(symbols) <= 0:
+		if size <= 0 or len(Board.symbols) <= 0:
 			return
 
 		self.size = size
-		self.symbols = symbols
+		self.symbols = Board.symbols
 
 		self.cells = []
 		self.numberOfPlayers = numberOfPlayers

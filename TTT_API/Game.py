@@ -1,11 +1,11 @@
 from Board import Board
 
 class Game:
-"""
-    Class to manage a Game that takes
-        - size the size of the board
-        - nbPlayers the number of players 
-"""
+    """
+        Class to manage a Game that takes
+            - size the size of the board
+            - nbPlayers the number of players 
+    """
 
     def __init__(self, size: int=2, nbPlayers: int=2):
         """ Initialize a new Game with parameters
@@ -28,7 +28,7 @@ class Game:
         }]
 
             
-    def playTurn(f, ID) -> int:
+    def playTurn(self, f, ID) -> int:
         """
             Play the turn with the function f (that corresponds to a player with id ID)
             Returns: 
@@ -41,7 +41,7 @@ class Game:
 
         return self.board.getWinner()
 
-    def reset(size: int=self.board.size, nbPlayers: int=self.nbPlayers):
+    def reset(self, size: int=2, nbPlayers: int=2):
         """
             Just reset a game
         """
@@ -54,4 +54,4 @@ class Game:
 
 
     def __repr__(self) -> str:
-        return f'A tic tac toe game of size {self.size} with {self.nbPlayers} players'
+        return f'A tic tac toe game of size {self.board.size} with {self.nbPlayers} players'
