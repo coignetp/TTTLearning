@@ -15,6 +15,6 @@ draws = data[0]
 
 print(f'Number of wins: {wins}')
 print(f'Number of draws: {draws}')
-print(f'Number of wins from p1: {data[1]/wins}')
-print(f'Number of wins from p2: {data[2]/wins}')
+print(f'Proportion of wins from p1: {data[1]/n}')
+print(f'Proportion of wins from p2: {data[2]/n}')
 print(f'Proportion of draws: {draws/wins}')
