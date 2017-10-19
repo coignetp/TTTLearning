@@ -1,12 +1,15 @@
 from main import rVr
-
+import matplotlib.pyplot as plt
 
 # iterations
 n = 1500
+<<<<<<< HEAD
 # size of the grid
 size = 3
 # number of player
 nbPlayer = 2
+=======
+>>>>>>> Added a bar plot
 
 # Draw, win1, win2
 data = [0 for i in range(0, nbPlayer+1)]
@@ -21,6 +24,13 @@ print(f'Draws : Number = {data[0]} ; Proportion = {data[0]/n}')
 
 """wins = data[1] + data[2]
 draws = data[0]
+
+plt.bar([0, 1, 2], height=[x/n for x in data])
+plt.xticks([0, 1, 2], ['P_draw', 'P_win1', 'P_win2'])
+plt.yticks([0.05*i for i in range(20)])
+plt.ylabel('Probability')
+plt.grid(linestyle='dashdot')
+plt.show()
 
 print(f'Number of wins: {wins}')
 print(f'Number of draws: {draws}')
