@@ -2,15 +2,13 @@ from TTT_API.Game import Game
 from TTT_API.Human import Human
 from AI.AIRandom import AIRandom
 
-def rVr(show = True) -> int:
+def rVr(show = True, size: int=3, nbPlayers: int=2) -> int:
     # size = int(input("Enter a size of the board: \n> "))
     # nbPlayers = int(input("Enter a number of players: \n> "))
-    nbPlayers = 2
-    size = 3
     game = Game(size, nbPlayers)
     ## pl = [Human(id+1) for id in range(0, nbPlayers)]
 
-    pl = [AIRandom(1, game.board), AIRandom(2, game.board)]
+    pl = [AIRandom(i + 1, game.board) for i in range(0, nbPlayers)]
 
     player = 0
 
