@@ -3,13 +3,10 @@ import matplotlib.pyplot as plt
 
 # iterations
 n = 1500
-<<<<<<< HEAD
 # size of the grid
 size = 3
 # number of player
 nbPlayer = 2
-=======
->>>>>>> Added a bar plot
 
 # Draw, win1, win2
 data = [0 for i in range(0, nbPlayer+1)]
