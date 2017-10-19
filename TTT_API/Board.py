@@ -1,5 +1,6 @@
-# Board class
+from typing import List
 
+# Board class
 class Board:
 	"""
 	Define the board of the game with :
@@ -17,7 +18,7 @@ class Board:
 		6: 'H'
 	}
 
-	def __init__(self, size, numberOfPlayers):
+	def __init__(self, size: int=2, numberOfPlayers: int=2):
 		""" Board constructor """
 		if size <= 0 or len(Board.symbols) <= 0:
 			return
@@ -33,7 +34,7 @@ class Board:
 		for i in range(0, size):
 			self.cells.append([-1 for k in range(0, size)])
 
-	def isFree(self, x, y):
+	def isFree(self, x: int , y: int) -> bool:
 		""" Tells if the cell is free to play """
 
 		if (x < 0 or x >= self.size) or (y < 0 or y >=self.size):
@@ -41,7 +42,7 @@ class Board:
 
 		return (self.cells[y][x] == -1)
 
-	def play(self, x, y, id):
+	def play(self, x: int, y: int, id: int) -> bool:
 		""" Plays for the player id """
 		if not self.isFree(x, y) or id <= 0 or id > self.numberOfPlayers:
 			return False
@@ -50,7 +51,7 @@ class Board:
 
 		return True
 
-	def isComplete(self):
+	def isComplete(self) -> bool:
 		""" Tells if the board is full """
 		for i in range(0, self.size):
 			for j in range(0, self.size):
@@ -58,7 +59,7 @@ class Board:
 					return False
 		return True
 
-	def getTickedLineSize(self, x, y, visited):
+	def getTickedLineSize(self, x: int, y: int, visited: List[List[bool]]) -> int:
 		""" Tells the length of (x,y) id line 
 			and update the visited cells """
 		lineSize = 0
@@ -79,7 +80,7 @@ class Board:
 
 		return lineSize
 
-	def getTickedColumnSize(self, x, y, visited):
+	def getTickedColumnSize(self, x: int, y: int, visited: List[List[bool]]) -> int:
 		""" Tells the size of the (x,y) id column
 			and update the visited cells """
 		columnSize = 0
@@ -100,7 +101,7 @@ class Board:
 
 		return columnSize
 
-	def getTickedDiagTopLeftSize(self, x, y, visited):
+	def getTickedDiagTopLeftSize(self, x: int, y: int, visited: List[List[bool]]) -> int:
 		""" Tells the size of one of the diagonal
 			and update visited cells """
 
@@ -122,7 +123,7 @@ class Board:
 
 		return diagSize
 
-	def getTickedDiagTopRightSize(self, x, y, visited):
+	def getTickedDiagTopRightSize(self, x: int, y: int, visited: List[List[bool]]) -> int:
 		""" Tells the size of one of the diagonal
 			and update visited cells """
 
@@ -144,7 +145,7 @@ class Board:
 
 		return diagSize
 
-	def getWinner(self):
+	def getWinner(self) -> int:
 		""" Returns the winner of the game """
 		visited = []
 		for i in range(0, self.size):
@@ -165,9 +166,10 @@ class Board:
 
 		return -1
 
-	def __repr__(self):
+	def __repr__(self) -> str:
 		""" Prints the board with the line
-			and column names """
+			and column names 
+		"""
 		ret = "    "
 
 		begLine = "+---"
