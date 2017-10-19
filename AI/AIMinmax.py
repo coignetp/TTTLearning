@@ -7,13 +7,16 @@ class AIMinmax(Player):
 	"""
 
 	def __init__(self, idPlayer, depth):
+			""" This AI need a depth attribut """
 			Player.__init__(self, idPlayer)
 			self.depth = depth
 
 	def minmax(self, board, depth, avaibleMove):
+		""" Implementation of the minmax algorithm """
 		w = board.getWinner()
 		id =  (self.idPlayer + (self.depth - depth) - 1)%board.numberOfPlayers + 1
 
+		# If the game is over, stop the minmax #
 		if w >= 1 and w != self.idPlayer:
 			return 0, 0, -1*(depth+1)
 		elif w >= 1 and w == self.idPlayer:
@@ -29,14 +32,18 @@ class AIMinmax(Player):
 
 		for i in range(0,len(avaibleMove)):
 			if avaibleMove[i]["available"]  == True:
+				# Simulate a move to see what will happen next #
 				avaibleMove[i]["available"] = False
 				board.cells[avaibleMove[i]["y"]][avaibleMove[i]["x"]] = id
 
+				# Recursive call of minmax #
 				_, _, temp = self.minmax(board, depth-1, avaibleMove)
 
+				# Cancel the simulated move #
 				avaibleMove[i]["available"] = True
 				board.cells[avaibleMove[i]["y"]][avaibleMove[i]["x"]] = -1
 
+				# Take the max or the min score, depending on who is the current player #
 				if (id == self.idPlayer and temp > max):
 					max = temp
 					x = avaibleMove[i]["x"]
@@ -47,6 +54,7 @@ class AIMinmax(Player):
 					x = avaibleMove[i]["x"]
 					y = avaibleMove[i]["y"]
 
+		# Return the max score if it's the AI turn, else return the min #
 		if(id == self.idPlayer):	
 			return x, y, max
 		return x, y, min
