@@ -1,5 +1,6 @@
-from Player import Player
-from Board import Board
+from TTT_API.Player import Player
+from TTT_API.Board import Board
+
 
 class Human(Player):
 	"""

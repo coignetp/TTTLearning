@@ -1,4 +1,4 @@
-from Board import Board
+from TTT_API.Board import Board
 
 class Game:
     """
