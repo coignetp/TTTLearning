@@ -6,8 +6,8 @@ class Player:
 	def __init__(self, idPlayer):
 		self.idPlayer = idPlayer
 
-	def play(board):
+	def play(self, board):
 		""" Makes the player play according to the actual board 
 			Returns the (x,y) position of the move """
 
-		return (-1,-1)
+		return -1,-1
