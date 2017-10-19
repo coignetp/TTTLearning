@@ -4,23 +4,19 @@ class Board:
 	"""
 	Define the board of the game with :
 	- size
-	- cells
 	- symbols 
 	"""
 
-	size = 0
-	cells = []
-	symbols = {1: 'X', 2: 'O'}
-	numberOfPlayer = 2
-
 	def __init__(self, size, symbols={1: 'X', 2: 'O'}):
-		""" Board contructor """
+		""" Board constructor """
 		if size <= 0 or len(symbols) <= 0:
 			return
 
 		self.size = size
 		self.symbols = symbols
-		self.numberOfPlayer = len(self.symbols)
+
+		self.cells = []
+		self.numberOfPlayers = len(self.symbols)
 
 		self.symbols[-1] = ' '
 
@@ -37,7 +33,7 @@ class Board:
 
 	def play(self, x, y, id):
 		""" Plays for the player id """
-		if not self.isFree(x, y) or id <= 0 or id > self.numberOfPlayer:
+		if not self.isFree(x, y) or id <= 0 or id > self.numberOfPlayers:
 			return False
 
 		self.cells[y][x] = id
@@ -52,10 +48,10 @@ class Board:
 					return False
 		return True
 
-	def getLineSize(self, x, y, visited):
+	def getTickedLineSize(self, x, y, visited):
 		""" Tells the length of (x,y) id line 
 			and update the visited cells """
-		lineSize=0
+		lineSize = 0
 		i = 0
 
 		while x-i >=0 and self.cells[y][x] == self.cells[y][x-i]:
@@ -73,10 +69,10 @@ class Board:
 
 		return lineSize
 
-	def getColumnSize(self, x, y, visited):
+	def getTickedColumnSize(self, x, y, visited):
 		""" Tells the size of the (x,y) id column
 			and update the visited cells """
-		columnSize=0
+		columnSize = 0
 		i = 0
 
 		while y-i >=0 and self.cells[y][x] == self.cells[y-i][x]:
@@ -94,7 +90,7 @@ class Board:
 
 		return columnSize
 
-	def getDiagTopLeftSize(self, x, y, visited):
+	def getTickedDiagTopLeftSize(self, x, y, visited):
 		""" Tells the size of one of the diagonal
 			and update visited cells """
 
@@ -116,7 +112,7 @@ class Board:
 
 		return diagSize
 
-	def getDiagTopRightSize(self, x, y, visited):
+	def getTickedDiagTopRightSize(self, x, y, visited):
 		""" Tells the size of one of the diagonal
 			and update visited cells """
 
@@ -148,10 +144,10 @@ class Board:
 			for j in range(0, self.size):
 				if not self.isFree(i, j) \
 				and visited[j][i] == False \
-				and(self.getLineSize(i, j, visited) >= self.size\
-				or self.getColumnSize(i, j, visited) >= self.size\
-				or self.getDiagTopLeftSize(i, j, visited) >= self.size\
-				or self.getDiagTopRightSize(i, j, visited) >= self.size):
+				and(self.getTickedLineSize(i, j, visited) >= self.size\
+				or self.getTickedColumnSize(i, j, visited) >= self.size\
+				or self.getTickedDiagTopLeftSize(i, j, visited) >= self.size\
+				or self.getTickedDiagTopRightSize(i, j, visited) >= self.size):
 					return self.cells[j][i]
 
 		if self.isComplete():
@@ -175,6 +171,7 @@ class Board:
 			ret += "     "
 			for j in range(0, self.size):
 				ret += begLine
+			# We loop over the alphabet
 			ret += "+\n  " + chr(ord('a') + i) + "  |"
 			for j in range(0, self.size):
 				ret += " " + self.symbols[self.cells[j][i]] + " |"
