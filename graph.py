@@ -1,6 +1,26 @@
 from main import rVr
 import matplotlib.pyplot as plt
+from AI.Generation import Generation
 
+from AI.AIRandom import AIRandom
+from AI.Simulation import Simulation
+
+s = Simulation()
+s.run()
+"""
+ai = [AIRandom(3), AIRandom(3)]
+b = Generation(2, ai, [3, 3, 3], 3)
+b.run(20)
+print(b.getHistory())"""
+#print(b.historic)
+
+#b.historic[3][3][0] = [1, 2, 3]
+#b.historic[3][3] = [9, 9, 9]
+#b.historic[3] = [9, 9, 9]
+
+#print(b.historic)
+
+"""
 # iterations
 n = 1500
 # size of the grid
@@ -17,7 +37,7 @@ for i in range(n):
 
 for i in range(1, len(data)):
 	print(f'Statistics for player {i} : Wins = {data[i]} ; Proportion = {data[i]/n}')
-print(f'Draws : Number = {data[0]} ; Proportion = {data[0]/n}')
+print(f'Draws : Number = {data[0]} ; Proportion = {data[0]/n}')"""
 
 """wins = data[1] + data[2]
 draws = data[0]

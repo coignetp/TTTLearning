@@ -64,9 +64,12 @@ class Simulation():
             for _ in range(self.nAI - len(self.AIlist)):
                 # Create the classifier and fit it
                 clf = MLPClassifier(hidden_layer_sizes=self.hiddenLayerSizes)
-                hist_sample = np.random.shuffle(history[:sampleSize])
+                np.random.shuffle(history)
+                hist_sample = history[:sampleSize]
+                #print(hist_sample)
                 clf.fit(hist_sample[:][0], hist_sample[:][1])
                 self.AIlist.append(AINeuralNetwork(self.lastID + 1, clf))
+                self.gen = Generation(self.nAI, self.AIlist, self.hiddenLayerSizes, self.boardSize)
 
         print('-'*20)
         print('Simulation ended !')
