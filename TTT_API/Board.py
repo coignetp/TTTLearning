@@ -166,6 +166,16 @@ class Board:
 
 		return -1
 
+	def toArray(self) -> List[int]:
+		"""
+			return the board in an array form
+		"""
+		l = []
+		for x in self.cells:
+			l += x
+		
+		return l
+
 	def __repr__(self) -> str:
 		""" Prints the board with the line
 			and column names 
