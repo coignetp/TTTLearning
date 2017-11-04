@@ -7,7 +7,8 @@ class AINeuralNetwork(Player):
 	An AI that uses a neural network
 	"""
 
-	def __init__(self, clf):
+	def __init__(self, idPlayer, clf):
+        Player.__init__(self, idPlayer)
 		self.clf = clf
 
 	def play(self, board):
