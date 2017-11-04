@@ -8,10 +8,10 @@ class AINeuralNetwork(Player):
     """
 
     def __init__(self, idPlayer, clf):
-        Player.__init__(self, idPlayer)
+        Player.__init__(self)
        	self.clf = clf
 
     def play(self, board, idPlayer):
-        prediction = self.clf.predict([board.toArray()])
-
-        return prediction
+        prediction = self.clf.predict([board.toArray()])[0]
+        print(prediction//3, prediction%3)
+        return [prediction//3, prediction%3]

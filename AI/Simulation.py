@@ -65,9 +65,8 @@ class Simulation():
                 # Create the classifier and fit it
                 clf = MLPClassifier(hidden_layer_sizes=self.hiddenLayerSizes)
                 np.random.shuffle(history)
-                hist_sample = history[:sampleSize]
-                #print(hist_sample)
-                clf.fit(hist_sample[:][0], hist_sample[:][1])
+                hist_sample = np.array(history)[:sampleSize, :]
+                clf.fit(list(hist_sample[:, 0]), [x*3+y for x, y in hist_sample[:, 1]])
                 self.AIlist.append(AINeuralNetwork(self.lastID + 1, clf))
                 self.gen = Generation(self.nAI, self.AIlist, self.hiddenLayerSizes, self.boardSize)
 
