@@ -28,7 +28,7 @@ class Simulation():
         self.boardSize = boardSize
 
         # The first generation is only random AI
-        self.AIlist = [AIRandom(i+1, self.boardSize) for i in range(self.nAI)]
+        self.AIlist = [AIRandom(self.boardSize) for i in range(self.nAI)]
         self.gen = Generation(self.nAI, self.AIlist, self.hiddenLayerSizes, self.boardSize)
         
         self.lastID = self.nAI
