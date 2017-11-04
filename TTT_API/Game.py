@@ -34,7 +34,7 @@ class Game:
             Returns: 
                 - Int from -1 to nbPlayers (-1 is game is not finished, 0 is a draw and others are the id of winners)
         """
-        x, y = f(self.board)
+        x, y = f(self.board, ID)
         # Add the play to the history
         self.histories[-1]["history"].append((x, y))
         self.board.play(x, y, ID)
