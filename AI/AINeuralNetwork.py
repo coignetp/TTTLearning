@@ -11,7 +11,7 @@ class AINeuralNetwork(Player):
         Player.__init__(self, idPlayer)
        	self.clf = clf
 
-    def play(self, board):
+    def play(self, board, idPlayer):
         prediction = self.clf.predict([board.toArray()])
 
         return prediction

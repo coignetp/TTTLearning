@@ -16,7 +16,7 @@ class AIRandom(Player):
 			for j in range(0, boardSize):
 				self.availableMove.append((i,j))
 
-	def play(self, board):
+	def play(self, board, idPlayer):
 		# Remove all the case not available #
 		sup = []
 
