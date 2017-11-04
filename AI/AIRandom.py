@@ -7,10 +7,11 @@ class AIRandom(Player):
 	A full random AI
 	"""
 
-	def __init__(self, idPlayer, boardSize):
-		Player.__init__(self, idPlayer)
+	def __init__(self, boardSize):
+		Player.__init__(self)
 
 		self.availableMove = []
+		self.boardSize = boardSize
 
 		for i in range(0, boardSize):
 			for j in range(0, boardSize):
@@ -31,3 +32,10 @@ class AIRandom(Player):
 		z = randint(0, len(self.availableMove)-1)
 
 		return self.availableMove[z]
+
+	def reset(self):
+		self.availableMove = []
+
+		for i in range(0, self.boardSize):
+			for j in range(0, self.boardSize):
+				self.availableMove.append((i,j))
