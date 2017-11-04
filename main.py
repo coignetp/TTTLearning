@@ -8,7 +8,7 @@ def rVr(show = True, size: int=3, nbPlayers: int=2) -> int:
     game = Game(size, nbPlayers)
     ## pl = [Human(id+1) for id in range(0, nbPlayers)]
 
-    pl = [AIRandom(i + 1, game.board) for i in range(0, nbPlayers)]
+    pl = [AIRandom(i + 1, game.board.size) for i in range(0, nbPlayers)]
 
     player = 0
 
