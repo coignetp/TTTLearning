@@ -11,7 +11,16 @@ class AINeuralNetwork(Player):
         Player.__init__(self)
        	self.clf = clf
 
+    def formatPred(self, pred):
+        return pred//3, pred%3
+
     def play(self, board, idPlayer):
         prediction = self.clf.predict([board.toArray()])[0]
-        print(prediction//3, prediction%3)
-        return [prediction//3, prediction%3]
+        proba = self.clf.predict_proba([board.toArray()])[0]
+
+        l = sorted(list(zip(self.clf.classes_, proba)), key=lambda x: x[1])
+        x, y = self.formatPred(l.pop()[0])
+        while not(board.isFree(x, y)):
+            x, y = self.formatPred(l.pop()[0])
+
+        return x, y

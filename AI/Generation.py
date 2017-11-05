@@ -77,7 +77,6 @@ class Generation:
 
 					while finished == -1:
 						finished = g.playTurn(self.ai[player].play, idp)
-
 						self.history[p][c] = [deepcopy(g.board.cells), g.histories[-1]["history"][-1]]
 
 						# Change the player

@@ -10,7 +10,7 @@ class Simulation():
         Defines a simulation (multiple generations)
     """
 
-    def __init__(self, nGen: int=20, nAI: int=4, nFights: int=1000, hiddenLayerSizes=(10, 10), keepRate: float=0.6, boardSize: int=3):
+    def __init__(self, nGen: int=20, nAI: int=4, nFights: int=1000, hiddenLayerSizes=(10, 10, 5), keepRate: float=0.6, boardSize: int=3):
         """
             Parameters:
                 - nGen is the number of generations (default is 20)
@@ -41,13 +41,12 @@ class Simulation():
         # Loop over the number of generations
         for i in range(self.nGen):
             # Run the generation and get statistics
-            statistics = self.gen.run(self.nFights)
+            draws, *statistics = self.gen.run(self.nFights)
 
             # Get the history
             history = self.gen.getHistory()
 
             # Print the statistics
-            draws = statistics.pop()
             print(f'Generation {i} report:')
             print(f'  - Number of draws: {draws}')
             print(f'  - Number of wins {sum(statistics)}')
@@ -63,7 +62,7 @@ class Simulation():
             sampleSize = int(self.keepRate*len(history))
             for _ in range(self.nAI - len(self.AIlist)):
                 # Create the classifier and fit it
-                clf = MLPClassifier(hidden_layer_sizes=self.hiddenLayerSizes)
+                clf = MLPClassifier(hidden_layer_sizes=self.hiddenLayerSizes, max_iter=500)
                 np.random.shuffle(history)
                 hist_sample = np.array(history)[:sampleSize, :]
                 clf.fit(list(hist_sample[:, 0]), [x*3+y for x, y in hist_sample[:, 1]])
