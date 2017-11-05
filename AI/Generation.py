@@ -53,7 +53,7 @@ class Generation:
 		"""
 		Run the games between all the AI
 		"""
-		self.history = [[ [ [], (-1, -1)]for _ in range(self.boardSize*self.boardSize)] + ["X"] for _ in range(0, n*self.size*(self.size-1)//2)]
+		self.history = [[ [ [], [-1, -1]] for _ in range(self.boardSize*self.boardSize)] + ["X"] for _ in range(0, n*self.size*(self.size-1)//2)]
 
 		# Store the number of win
 		self.stats = [0] * (self.size + 1)
