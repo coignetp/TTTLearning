@@ -3,6 +3,7 @@ from TTT_API.Game import Game
 from TTT_API.Player import Player
 from AI.AIRandom import AIRandom
 from copy import deepcopy
+from random import randint
 
 class Generation:
 	"""
@@ -70,27 +71,31 @@ class Generation:
 
 					g = Game(self.boardSize, 2)
 					pl = 0
+					players = [0, 0, 0]
+					if randint(1,2) == 1:
+						players[1] = i + 1
+						players[2] = j + 1
+					else:
+						players[2] = i + 1
+						players[1] = j + 1
 					finished = -1
 					c = 0
-					player = i
 					idp = 1
 
 					while finished == -1:
-						finished = g.playTurn(self.ai[player].play, idp)
+						finished = g.playTurn(self.ai[players[idp]-1].play, idp)
 
 						self.history[p][c] = [deepcopy(g.board.cells), g.histories[-1]["history"][-1]]
 
 						# Change the player
-						if player == i:
-							player = j
+						if idp == 1:
 							idp = 2
 						else:
-							player = i
 							idp = 1
 						c += 1
 
 					self.history[p][-1] = finished
-					self.stats[finished] += 1
+					self.stats[players[finished]] += 1
 					p += 1
 
 		#print(self.history)
