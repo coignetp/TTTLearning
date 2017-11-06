@@ -41,12 +41,13 @@ class Simulation():
         # Loop over the number of generations
         for i in range(self.nGen):
             # Run the generation and get statistics
-            draws, *statistics = self.gen.run(self.nFights)
+            draws, *statistics = self.gen.run((i+1)*self.nFights)
 
             # Get the history
             history = self.gen.getHistory()
 
             # Print the statistics
+            print(self.AIlist)
             print(f'Generation {i} report:')
             print(f'  - Number of draws: {draws}')
             print(f'  - Number of wins {sum(statistics)}')
@@ -66,6 +67,7 @@ class Simulation():
                 np.random.shuffle(history)
                 hist_sample = np.array(history)[:sampleSize, :]
                 clf.fit(list(hist_sample[:, 0]), [x*3+y for x, y in hist_sample[:, 1]])
+
                 self.AIlist.append(AINeuralNetwork(self.lastID + 1, clf))
                 self.gen = Generation(self.nAI, self.AIlist, self.hiddenLayerSizes, self.boardSize)
 

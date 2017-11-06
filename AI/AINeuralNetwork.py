@@ -21,6 +21,14 @@ class AINeuralNetwork(Player):
         l = sorted(list(zip(self.clf.classes_, proba)), key=lambda x: x[1])
         x, y = self.formatPred(l.pop()[0])
         while not(board.isFree(x, y)):
-            x, y = self.formatPred(l.pop()[0])
-
+            try:
+                x, y = self.formatPred(l.pop()[0])
+            except IndexError:
+                print(board.cells)
+                print(l)
+                print('#'*500)
+                break
         return x, y
+
+    def __repr__(self):
+        return 'Neural Network AI'

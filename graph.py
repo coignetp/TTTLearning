@@ -5,7 +5,7 @@ from AI.Generation import Generation
 from AI.AIRandom import AIRandom
 from AI.Simulation import Simulation
 
-s = Simulation()
+s = Simulation(keepRate=0.6, nAI=5, nFights=500, nGen=10)
 s.run()
 """
 ai = [AIRandom(3), AIRandom(3)]
@@ -14,14 +14,14 @@ b.run(20)
 print(b.getHistory())"""
 #print(b.historic)
 
-#b.historic[3][3][0] = [1, 2, 3]
-#b.historic[3][3] = [9, 9, 9]
-#b.historic[3] = [9, 9, 9]
-
 #print(b.historic)
 
 """
-# iterations
+# iterations#b.historic[3][3][0] = [1, 2, 3]
+#b.historic[3][3] = [9, 9, 9]
+#b.historic[3] = [9, 9, 9]
+
+
 n = 1500
 # size of the grid
 size = 3

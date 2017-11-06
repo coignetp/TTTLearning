@@ -39,3 +39,6 @@ class AIRandom(Player):
 		for i in range(0, self.boardSize):
 			for j in range(0, self.boardSize):
 				self.availableMove.append((i,j))
+
+	def __repr__(self):
+		return 'Random AI'

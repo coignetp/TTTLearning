@@ -4,4 +4,94 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-main.py	../TTT_API/main.py	1;"	kind:file	line:1
+AIMinmax	../AI/AIMinmax.py	/^class AIMinmax(Player):$/;"	kind:class	line:4
+AIMinmax.py	../AI/AIMinmax.py	1;"	kind:file	line:1
+AINeuralNetwork	../AI/AINeuralNetwork.py	/^class AINeuralNetwork(Player):$/;"	kind:class	line:5
+AINeuralNetwork	../AI/Generation.py	/^from AI.AINeuralNetwork import AINeuralNetwork$/;"	kind:namespace	line:1
+AINeuralNetwork	../AI/Simulation.py	/^from AI.AINeuralNetwork import AINeuralNetwork$/;"	kind:namespace	line:4
+AINeuralNetwork.py	../AI/AINeuralNetwork.py	1;"	kind:file	line:1
+AIRandom	../AI/AIRandom.py	/^class AIRandom(Player):$/;"	kind:class	line:5
+AIRandom	../AI/Generation.py	/^from AI.AIRandom import AIRandom$/;"	kind:namespace	line:4
+AIRandom	../AI/Simulation.py	/^from AI.AIRandom import AIRandom$/;"	kind:namespace	line:3
+AIRandom	../graph.py	/^from AI.AIRandom import AIRandom$/;"	kind:namespace	line:5
+AIRandom	../main.py	/^from AI.AIRandom import AIRandom$/;"	kind:namespace	line:3
+AIRandom.py	../AI/AIRandom.py	1;"	kind:file	line:1
+Board	../AI/AIMinmax.py	/^from TTT_API.Board import Board$/;"	kind:namespace	line:2
+Board	../AI/AINeuralNetwork.py	/^from TTT_API.Board import Board$/;"	kind:namespace	line:2
+Board	../AI/AIRandom.py	/^from TTT_API.Board import Board$/;"	kind:namespace	line:2
+Board	../TTT_API/Board.py	/^class Board:$/;"	kind:class	line:4
+Board	../TTT_API/Game.py	/^from TTT_API.Board import Board$/;"	kind:namespace	line:1
+Board	../TTT_API/Human.py	/^from TTT_API.Board import Board$/;"	kind:namespace	line:2
+Board	../TTT_API/Player.py	/^from TTT_API.Board import Board$/;"	kind:namespace	line:1
+Board.py	../TTT_API/Board.py	1;"	kind:file	line:1
+Game	../AI/Generation.py	/^from TTT_API.Game import Game$/;"	kind:namespace	line:2
+Game	../TTT_API/Game.py	/^class Game:$/;"	kind:class	line:3
+Game	../main.py	/^from TTT_API.Game import Game$/;"	kind:namespace	line:1
+Game.py	../TTT_API/Game.py	1;"	kind:file	line:1
+Generation	../AI/Generation.py	/^class Generation:$/;"	kind:class	line:8
+Generation	../AI/Simulation.py	/^from AI.Generation import Generation$/;"	kind:namespace	line:5
+Generation	../graph.py	/^from AI.Generation import Generation$/;"	kind:namespace	line:3
+Generation.py	../AI/Generation.py	1;"	kind:file	line:1
+Human	../TTT_API/Human.py	/^class Human(Player):$/;"	kind:class	line:5
+Human	../main.py	/^from TTT_API.Human import Human$/;"	kind:namespace	line:2
+Human.py	../TTT_API/Human.py	1;"	kind:file	line:1
+List	../TTT_API/Board.py	/^from typing import List$/;"	kind:namespace	line:1
+MLPClassifier	../AI/Simulation.py	/^from sklearn.neural_network import MLPClassifier$/;"	kind:namespace	line:1
+Player	../AI/AIMinmax.py	/^from TTT_API.Player import Player$/;"	kind:namespace	line:1
+Player	../AI/AINeuralNetwork.py	/^from TTT_API.Player import Player$/;"	kind:namespace	line:1
+Player	../AI/AIRandom.py	/^from TTT_API.Player import Player$/;"	kind:namespace	line:1
+Player	../AI/Generation.py	/^from TTT_API.Player import Player$/;"	kind:namespace	line:3
+Player	../TTT_API/Human.py	/^from TTT_API.Player import Player$/;"	kind:namespace	line:1
+Player	../TTT_API/Player.py	/^class Player:$/;"	kind:class	line:3
+Player.py	../TTT_API/Player.py	1;"	kind:file	line:1
+Simulation	../AI/Simulation.py	/^class Simulation():$/;"	kind:class	line:8
+Simulation	../graph.py	/^from AI.Simulation import Simulation$/;"	kind:namespace	line:6
+Simulation.py	../AI/Simulation.py	1;"	kind:file	line:1
+__init__	../AI/AIMinmax.py	/^	def __init__(self, idPlayer, depth):$/;"	kind:member	line:9
+__init__	../AI/AINeuralNetwork.py	/^    def __init__(self, idPlayer, clf):$/;"	kind:member	line:10
+__init__	../AI/AIRandom.py	/^	def __init__(self, boardSize):$/;"	kind:member	line:10
+__init__	../AI/Generation.py	/^	def __init__(self, size, ai, hiddenLayerSizes, boardSize):$/;"	kind:member	line:18
+__init__	../AI/Simulation.py	/^    def __init__(self, nGen: int=20, nAI: int=4, nFights: int=1000, hiddenLayerSizes=(10, 10, 5), keepRate: float=0.6, boardSize: int=3):$/;"	kind:member	line:13
+__init__	../TTT_API/Board.py	/^	def __init__(self, size: int=2, numberOfPlayers: int=2):$/;"	kind:member	line:21
+__init__	../TTT_API/Game.py	/^    def __init__(self, size: int=2, nbPlayers: int=2):$/;"	kind:member	line:10
+__init__	../TTT_API/Player.py	/^	def __init__(self):$/;"	kind:member	line:8
+__init__.py	../AI/__init__.py	1;"	kind:file	line:1
+__init__.py	../TTT_API/__init__.py	1;"	kind:file	line:1
+__repr__	../AI/AINeuralNetwork.py	/^    def __repr__(self):$/;"	kind:member	line:33
+__repr__	../AI/AIRandom.py	/^	def __repr__(self):$/;"	kind:member	line:43
+__repr__	../TTT_API/Board.py	/^	def __repr__(self) -> str:$/;"	kind:member	line:179
+__repr__	../TTT_API/Game.py	/^    def __repr__(self) -> str:$/;"	kind:member	line:56
+deepcopy	../AI/Generation.py	/^from copy import deepcopy$/;"	kind:namespace	line:5
+formatPred	../AI/AINeuralNetwork.py	/^    def formatPred(self, pred):$/;"	kind:member	line:14
+getHistory	../AI/Generation.py	/^	def getHistory(self):$/;"	kind:member	line:33
+getTickedColumnSize	../TTT_API/Board.py	/^	def getTickedColumnSize(self, x: int, y: int, visited: List[List[bool]]) -> int:$/;"	kind:member	line:83
+getTickedDiagTopLeftSize	../TTT_API/Board.py	/^	def getTickedDiagTopLeftSize(self, x: int, y: int, visited: List[List[bool]]) -> int:$/;"	kind:member	line:104
+getTickedDiagTopRightSize	../TTT_API/Board.py	/^	def getTickedDiagTopRightSize(self, x: int, y: int, visited: List[List[bool]]) -> int:$/;"	kind:member	line:126
+getTickedLineSize	../TTT_API/Board.py	/^	def getTickedLineSize(self, x: int, y: int, visited: List[List[bool]]) -> int:$/;"	kind:member	line:62
+getWinner	../TTT_API/Board.py	/^	def getWinner(self) -> int:$/;"	kind:member	line:148
+graph.py	../graph.py	1;"	kind:file	line:1
+isComplete	../TTT_API/Board.py	/^	def isComplete(self) -> bool:$/;"	kind:member	line:54
+isFree	../TTT_API/Board.py	/^	def isFree(self, x: int , y: int) -> bool:$/;"	kind:member	line:37
+main.py	../main.py	1;"	kind:file	line:1
+matplotlib	../graph.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:2
+minmax	../AI/AIMinmax.py	/^	def minmax(self, board, depth, avaibleMove, idPlayer):$/;"	kind:member	line:14
+np	../AI/Simulation.py	/^import numpy as np$/;"	kind:namespace	line:2
+play	../AI/AIMinmax.py	/^	def play(self, board, idPlayer):$/;"	kind:member	line:62
+play	../AI/AINeuralNetwork.py	/^    def play(self, board, idPlayer):$/;"	kind:member	line:17
+play	../AI/AIRandom.py	/^	def play(self, board, idPlayer):$/;"	kind:member	line:20
+play	../TTT_API/Board.py	/^	def play(self, x: int, y: int, id: int) -> bool:$/;"	kind:member	line:45
+play	../TTT_API/Human.py	/^	def play(self, board: Board) -> (int, int):$/;"	kind:member	line:10
+play	../TTT_API/Player.py	/^	def play(self, board: Board, idPlayer: int) -> (int, int):$/;"	kind:member	line:11
+playTurn	../TTT_API/Game.py	/^    def playTurn(self, f, ID) -> int:$/;"	kind:member	line:31
+plt	../graph.py	/^import matplotlib.pyplot as plt$/;"	kind:namespace	line:2
+rVr	../graph.py	/^from main import rVr$/;"	kind:namespace	line:1
+rVr	../main.py	/^def rVr(show = True, size: int=3, nbPlayers: int=2) -> int:$/;"	kind:function	line:5
+randint	../AI/AIRandom.py	/^from random import randint$/;"	kind:namespace	line:3
+randint	../AI/Generation.py	/^from random import randint$/;"	kind:namespace	line:6
+reset	../AI/AIRandom.py	/^	def reset(self):$/;"	kind:member	line:36
+reset	../TTT_API/Game.py	/^    def reset(self, size: int=2, nbPlayers: int=2):$/;"	kind:member	line:44
+run	../AI/Generation.py	/^	def run(self, n):$/;"	kind:member	line:52
+run	../AI/Simulation.py	/^    def run(self):$/;"	kind:member	line:36
+s	../graph.py	/^s = Simulation(keepRate=0.6, nAI=5, nFights=500, nGen=10)$/;"	kind:variable	line:8
+symbols	../TTT_API/Board.py	/^	symbols = {$/;"	kind:variable	line:11
+toArray	../TTT_API/Board.py	/^	def toArray(self) -> List[int]:$/;"	kind:member	line:169
