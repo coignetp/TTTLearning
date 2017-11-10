@@ -29,4 +29,7 @@ def rVr(show = True, size: int=3, nbPlayers: int=2) -> int:
 
 # Main function
 if __name__ == '__main__':
-    print('Winner is : ' + str(rVr()))
+    from AI.Simulation import Simulation
+
+    s = Simulation(keepRate=0.6, nAI=5, nFights=500, nGen=10)
+    s.run()
