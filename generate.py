@@ -5,6 +5,7 @@ import argparse
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Generate a new AI")
     # Parser arguments
+    parser.add_argument('-o', '--output', type=str, help="The output file which will hold the model (required)", required=True)
     parser.add_argument('-bs', '--boardSize', type=int, help="The boardSize (default is 3)", default=3)
     parser.add_argument('-kR', '--keepRate', type=float, help="The proportion on records on which we learn (default is 0.6)", default=0.6)
     parser.add_argument('-nA', '--nAI', type=int, help="The number of AI per generation (default is 5)", default=5)
