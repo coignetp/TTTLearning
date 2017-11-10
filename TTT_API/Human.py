@@ -7,7 +7,7 @@ class Human(Player):
 	Player instance for human players
 	"""
 
-	def play(self, board: Board) -> (int, int):
+	def play(self, board: Board, idPlayer) -> (int, int):
 		""" Asks the human what he would like to play """
 
 		availableChoice = False
