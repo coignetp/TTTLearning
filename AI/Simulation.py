@@ -87,7 +87,7 @@ class Simulation():
                     clf.fit(list(hist_sample[:, 0]), [
                             x * 3 + y for x, y in hist_sample[:, 1]])
 
-                    self.AIlist.append(AINeuralNetwork(self.lastID + 1, clf))
+                    self.AIlist.append(AINeuralNetwork(clf))
                     self.gen = Generation(
                         self.nAI, self.AIlist, self.hiddenLayerSizes, self.boardSize)
 
