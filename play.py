@@ -82,6 +82,9 @@ if __name__ == '__main__':
 		pl = 0
 
 		while g.board.getWinner() == -1:
+			if args.mute == None:
+				print(g.board)
+
 			g.playTurn(ai[pl].play, pl+1)
 
 			pl = (pl + 1)%2
