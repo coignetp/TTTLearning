@@ -15,5 +15,5 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     
-    s = Simulation(boardSize=args.boardSize, keepRate=args.keepRate, nAI=args.nAI, nFights=args.nFights, nGen=args.nGen, hiddenLayerSizes=args.hiddenLayerSizes)
+    s = Simulation(boardSize=args.boardSize, keepRate=args.keepRate, nAI=args.nAI, nFights=args.nFights, nGen=args.nGen, hiddenLayerSizes=args.hiddenLayerSizes, outputFile=args.output)
     s.run()

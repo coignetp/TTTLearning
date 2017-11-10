@@ -27,7 +27,7 @@ class Simulation():
         self.hiddenLayerSizes = hiddenLayerSizes
         self.keepRate = keepRate
         self.boardSize = boardSize
-        self.outputFile = "sim.pkl"
+        self.outputFile = f'{outputFile}.pkl'
 
         # The first generation is only random AI
         self.AIlist = [AIRandom(self.boardSize) for i in range(self.nAI)]
