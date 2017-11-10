@@ -69,7 +69,7 @@ class Simulation():
             # If simulation is going to end
             if i == self.nGen - 1:
                 # save the best AI (the one which has the highest number of wins)
-                self.save(max([(ai, stat) for (ai, stat) in zip(self.AIlist, statistics)], key=lambda v : v[1])[0])
+                self.save(max([(ai, stat) for (ai, stat) in zip(self.AIlist, statistics)], key=lambda v : v[1])[0].clf)
 
             else:
                 # Compare the number of wins to the median
