@@ -89,7 +89,16 @@ if __name__ == '__main__':
 
 			pl = (pl + 1)%2
 
-		results[g.board.getWinner()] += 1
+
+		winner = g.board.getWinner()
+		if args.mute == None:
+			print(g.board)
+			if winner == 0:
+				print('Draw !')
+			else:
+				print(f'{winner} won !')
+
+		results[winner] += 1
 
 	if args.mute == None:
 		print(f'Results : {results}')
